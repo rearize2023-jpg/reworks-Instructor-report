@@ -1,0 +1,1777 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Re:Works 講座 講師フィードバックレポート（2026年1月〜5月）</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --bg: #FFF9F0;
+  --card: #FFFFFF;
+  --ink: #2D3142;
+  --ink-soft: #5C6378;
+  --ink-mute: #9098A8;
+
+  --peach: #F08A5D;
+  --peach-soft: #FFE3D4;
+  --peach-bg: #FFF1E8;
+
+  --sky: #5DAEDC;
+  --sky-soft: #D6ECF7;
+  --sky-bg: #EAF5FB;
+
+  --yellow: #EFB034;
+  --yellow-soft: #FFE9B3;
+  --yellow-bg: #FFF6DC;
+
+  --green: #6FB07F;
+  --green-soft: #CFEAD6;
+  --green-bg: #E8F4EC;
+
+  --pink: #E97DA1;
+  --pink-soft: #FAD8E5;
+  --pink-bg: #FCEBF1;
+
+  --purple: #9989D4;
+  --purple-soft: #E1DAF5;
+  --purple-bg: #F1ECFA;
+
+  --border: #F0E8DA;
+  --border-soft: #F7F2E8;
+  --shadow: 0 4px 18px rgba(193, 130, 80, 0.08);
+  --shadow-sm: 0 2px 8px rgba(193, 130, 80, 0.06);
+
+  --round-card: "Noto Sans JP", "Hiragino Sans", sans-serif;
+  --sans: "Noto Sans JP", "Hiragino Sans", sans-serif;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-weight: 400;
+  line-height: 1.85;
+  font-size: 15px;
+  letter-spacing: 0.01em;
+}
+
+/* Decorative paper background */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image:
+    radial-gradient(circle at 12% 8%, rgba(240, 138, 93, 0.08) 0%, transparent 30%),
+    radial-gradient(circle at 88% 12%, rgba(93, 174, 220, 0.07) 0%, transparent 30%),
+    radial-gradient(circle at 92% 88%, rgba(239, 176, 52, 0.07) 0%, transparent 30%),
+    radial-gradient(circle at 8% 92%, rgba(111, 176, 127, 0.06) 0%, transparent 30%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.page {
+  position: relative;
+  z-index: 1;
+  max-width: 1040px;
+  margin: 0 auto;
+  padding: 48px 32px 80px;
+}
+
+@media (max-width: 768px) {
+  .page { padding: 24px 16px 60px; }
+}
+
+/* ====================== HERO ====================== */
+.hero {
+  text-align: center;
+  padding: 56px 32px 48px;
+  background: linear-gradient(135deg, var(--peach-bg) 0%, var(--yellow-bg) 50%, var(--sky-bg) 100%);
+  border-radius: 32px;
+  margin-bottom: 56px;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before, .hero::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(40px);
+  opacity: 0.4;
+}
+.hero::before { width: 200px; height: 200px; background: var(--peach); top: -60px; left: -40px; }
+.hero::after { width: 240px; height: 240px; background: var(--sky); bottom: -80px; right: -60px; }
+
+.hero-tag {
+  display: inline-block;
+  background: var(--card);
+  color: var(--peach);
+  font-family: var(--round-card);
+  font-weight: 700;
+  font-size: 12px;
+  letter-spacing: 0.15em;
+  padding: 8px 18px;
+  border-radius: 999px;
+  margin-bottom: 20px;
+  position: relative;
+  box-shadow: var(--shadow-sm);
+}
+
+.hero h1 {
+  font-family: var(--round-card);
+  font-weight: 800;
+  font-size: clamp(28px, 5vw, 44px);
+  line-height: 1.4;
+  color: var(--ink);
+  margin-bottom: 16px;
+  position: relative;
+  letter-spacing: -0.005em;
+}
+
+.hero h1 .em {
+  color: var(--peach);
+}
+
+.hero-sub {
+  font-family: var(--round-card);
+  font-weight: 500;
+  font-size: clamp(15px, 2vw, 17px);
+  color: var(--ink-soft);
+  max-width: 580px;
+  margin: 0 auto 32px;
+  position: relative;
+  line-height: 1.9;
+}
+
+.hero-meta {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  position: relative;
+}
+
+.hero-meta .chip {
+  background: var(--card);
+  border-radius: 999px;
+  padding: 8px 18px;
+  font-family: var(--round-card);
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--ink-soft);
+  box-shadow: var(--shadow-sm);
+}
+
+.hero-meta .chip strong {
+  color: var(--ink);
+  font-weight: 700;
+  margin-left: 4px;
+}
+
+/* ====================== NAV CHIPS ====================== */
+.nav-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: center;
+  margin-bottom: 56px;
+  padding: 0 8px;
+}
+
+.nav-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--card);
+  color: var(--ink-soft);
+  text-decoration: none;
+  font-family: var(--round-card);
+  font-weight: 500;
+  font-size: 13px;
+  padding: 8px 16px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  transition: all 0.2s;
+}
+
+.nav-chip:hover {
+  background: var(--peach-bg);
+  color: var(--peach);
+  border-color: var(--peach-soft);
+  transform: translateY(-1px);
+}
+
+/* ====================== SECTION ====================== */
+section {
+  margin-bottom: 72px;
+  scroll-margin-top: 20px;
+}
+
+.section-label {
+  display: inline-block;
+  font-family: var(--round-card);
+  font-weight: 700;
+  font-size: 12px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--peach);
+  margin-bottom: 8px;
+}
+
+.section-label.sky { color: var(--sky); }
+.section-label.yellow { color: var(--yellow); }
+.section-label.green { color: var(--green); }
+.section-label.pink { color: var(--pink); }
+.section-label.purple { color: var(--purple); }
+
+.section-title {
+  font-family: var(--round-card);
+  font-weight: 800;
+  font-size: clamp(22px, 3.4vw, 30px);
+  line-height: 1.4;
+  color: var(--ink);
+  margin-bottom: 14px;
+}
+
+.section-desc {
+  font-size: 14.5px;
+  line-height: 1.95;
+  color: var(--ink-soft);
+  margin-bottom: 28px;
+  max-width: 760px;
+}
+
+.section-desc strong { color: var(--ink); font-weight: 700; }
+
+.subhead {
+  font-family: var(--round-card);
+  font-weight: 700;
+  font-size: 16px;
+  color: var(--ink);
+  margin: 32px 0 14px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* ====================== STAT CARDS ====================== */
+.stat-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+@media (max-width: 768px) { .stat-row { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 480px) { .stat-row { grid-template-columns: 1fr; } }
+
+.stat-row.three { grid-template-columns: repeat(3, 1fr); }
+@media (max-width: 768px) { .stat-row.three { grid-template-columns: 1fr; } }
+
+.stat-row.two { grid-template-columns: repeat(2, 1fr); }
+@media (max-width: 600px) { .stat-row.two { grid-template-columns: 1fr; } }
+
+.stat {
+  background: var(--card);
+  border-radius: 20px;
+  padding: 24px 24px 22px;
+  position: relative;
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.stat:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow);
+}
+
+.stat-emoji {
+  font-size: 26px;
+  margin-bottom: 12px;
+  line-height: 1;
+}
+
+.stat-label {
+  font-family: var(--round-card);
+  font-weight: 700;
+  font-size: 13px;
+  color: var(--ink-soft);
+  margin-bottom: 8px;
+  letter-spacing: 0.01em;
+}
+
+.stat-value {
+  font-family: var(--round-card);
+  font-weight: 800;
+  font-size: 38px;
+  line-height: 1;
+  color: var(--ink);
+  letter-spacing: -0.02em;
+  margin-bottom: 6px;
+}
+
+.stat-value .unit {
+  font-size: 16px;
+  margin-left: 4px;
+  color: var(--ink-soft);
+  font-weight: 700;
+}
+
+.stat-sub {
+  font-size: 12px;
+  color: var(--ink-mute);
+  line-height: 1.6;
+}
+
+.stat.peach { background: var(--peach-bg); }
+.stat.peach .stat-value { color: var(--peach); }
+
+.stat.sky { background: var(--sky-bg); }
+.stat.sky .stat-value { color: var(--sky); }
+
+.stat.yellow { background: var(--yellow-bg); }
+.stat.yellow .stat-value { color: var(--yellow); }
+
+.stat.green { background: var(--green-bg); }
+.stat.green .stat-value { color: var(--green); }
+
+.stat.pink { background: var(--pink-bg); }
+.stat.pink .stat-value { color: var(--pink); }
+
+.stat.purple { background: var(--purple-bg); }
+.stat.purple .stat-value { color: var(--purple); }
+
+/* Big hero stat */
+.big-stat {
+  background: linear-gradient(135deg, var(--peach-bg) 0%, var(--yellow-bg) 100%);
+  border-radius: 24px;
+  padding: 36px 40px;
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.big-stat .big-num {
+  font-family: var(--round-card);
+  font-weight: 800;
+  font-size: clamp(56px, 10vw, 88px);
+  line-height: 1;
+  color: var(--peach);
+  letter-spacing: -0.04em;
+  margin: 8px 0;
+}
+
+.big-stat .big-num .unit {
+  font-size: 28px;
+  color: var(--ink-soft);
+  margin-left: 6px;
+}
+
+.big-stat .big-label {
+  font-family: var(--round-card);
+  font-weight: 700;
+  font-size: 16px;
+  color: var(--ink-soft);
+}
+
+.big-stat .big-sub {
+  margin-top: 12px;
+  font-size: 14px;
+  color: var(--ink-soft);
+  font-weight: 500;
+}
+
+.big-stat .big-sub strong { color: var(--ink); }
+
+/* ====================== BAR LIST ====================== */
+.bar-list {
+  background: var(--card);
+  border-radius: 20px;
+  padding: 28px 32px;
+  box-shadow: var(--shadow-sm);
+}
+
+.bar-row {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: 12px 16px;
+  padding: 14px 0;
+  border-bottom: 1px dashed var(--border);
+}
+
+.bar-row:last-child { border-bottom: none; }
+
+.bar-label {
+  font-family: var(--round-card);
+  font-weight: 700;
+  font-size: 14px;
+  color: var(--ink);
+  grid-column: 1;
+}
+
+.bar-num {
+  font-family: var(--round-card);
+  font-weight: 800;
+  font-size: 18px;
+  color: var(--peach);
+  grid-column: 2;
+  white-space: nowrap;
+}
+
+.bar-num small {
+  font-size: 12px;
+  color: var(--ink-mute);
+  font-weight: 500;
+  margin-left: 2px;
+}
+
+.bar-track {
+  grid-column: 1 / 3;
+  height: 10px;
+  background: var(--peach-bg);
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--peach) 0%, #FF9C72 100%);
+  border-radius: 999px;
+  width: 0;
+  animation: fillBar 1.4s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+  animation-delay: 0.3s;
+}
+
+.bar-row.sky .bar-num { color: var(--sky); }
+.bar-row.sky .bar-track { background: var(--sky-bg); }
+.bar-row.sky .bar-fill { background: linear-gradient(90deg, var(--sky) 0%, #7BC6F0 100%); }
+
+.bar-row.yellow .bar-num { color: var(--yellow); }
+.bar-row.yellow .bar-track { background: var(--yellow-bg); }
+.bar-row.yellow .bar-fill { background: linear-gradient(90deg, var(--yellow) 0%, #F7C766 100%); }
+
+.bar-row.green .bar-num { color: var(--green); }
+.bar-row.green .bar-track { background: var(--green-bg); }
+.bar-row.green .bar-fill { background: linear-gradient(90deg, var(--green) 0%, #8EC89C 100%); }
+
+.bar-row.purple .bar-num { color: var(--purple); }
+.bar-row.purple .bar-track { background: var(--purple-bg); }
+.bar-row.purple .bar-fill { background: linear-gradient(90deg, var(--purple) 0%, #B0A2DD 100%); }
+
+.bar-row.pink .bar-num { color: var(--pink); }
+.bar-row.pink .bar-track { background: var(--pink-bg); }
+.bar-row.pink .bar-fill { background: linear-gradient(90deg, var(--pink) 0%, #F09BB7 100%); }
+
+@keyframes fillBar { to { width: var(--w); } }
+
+/* ====================== QUOTE CARDS ====================== */
+.quote-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+@media (max-width: 768px) { .quote-grid { grid-template-columns: 1fr; } }
+
+.quote-card {
+  background: var(--card);
+  border-radius: 18px;
+  padding: 22px 24px 20px;
+  box-shadow: var(--shadow-sm);
+  font-size: 14px;
+  line-height: 1.95;
+  color: var(--ink-soft);
+  position: relative;
+  border-top: 4px solid var(--peach);
+}
+
+.quote-card.sky { border-top-color: var(--sky); }
+.quote-card.yellow { border-top-color: var(--yellow); }
+.quote-card.green { border-top-color: var(--green); }
+.quote-card.pink { border-top-color: var(--pink); }
+.quote-card.purple { border-top-color: var(--purple); }
+
+.quote-card em {
+  font-style: normal;
+  font-weight: 700;
+  color: var(--ink);
+  background: linear-gradient(transparent 70%, var(--yellow-soft) 70%);
+  padding: 0 2px;
+}
+
+.quote-src {
+  margin-top: 12px;
+  padding-top: 10px;
+  border-top: 1px dashed var(--border);
+  font-family: var(--round-card);
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--ink-mute);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.quote-src::before { content: "💬"; }
+
+/* ====================== FEATURED NOTE LINK ====================== */
+.note-feature-section {
+  margin-bottom: 64px;
+  scroll-margin-top: 20px;
+}
+
+.note-feature {
+  display: grid;
+  grid-template-columns: 1fr 240px;
+  gap: 24px;
+  background: linear-gradient(135deg, #FFE9DC 0%, #FFF6DC 50%, #DDEEFB 100%);
+  border-radius: 24px;
+  padding: 36px 40px;
+  text-decoration: none;
+  color: inherit;
+  position: relative;
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.note-feature::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(circle at 90% 10%, rgba(240, 138, 93, 0.18) 0%, transparent 35%),
+    radial-gradient(circle at 10% 90%, rgba(93, 174, 220, 0.18) 0%, transparent 35%);
+  pointer-events: none;
+}
+
+.note-feature:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow);
+}
+
+.note-feature-left {
+  position: relative;
+  z-index: 1;
+}
+
+.note-feature-tag {
+  display: inline-block;
+  background: var(--card);
+  color: var(--peach);
+  font-weight: 700;
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  padding: 7px 16px;
+  border-radius: 999px;
+  margin-bottom: 16px;
+  box-shadow: var(--shadow-sm);
+}
+
+.note-feature-title {
+  font-weight: 800;
+  font-size: clamp(22px, 3.4vw, 28px);
+  line-height: 1.45;
+  color: var(--ink);
+  margin-bottom: 14px;
+  letter-spacing: -0.005em;
+}
+
+.note-feature-em {
+  background: linear-gradient(transparent 65%, rgba(239, 176, 52, 0.45) 65%);
+  padding: 0 4px;
+}
+
+.note-feature-desc {
+  font-size: 14px;
+  line-height: 1.95;
+  color: var(--ink-soft);
+  margin-bottom: 18px;
+}
+
+.note-feature-cta {
+  display: inline-block;
+  background: var(--ink);
+  color: #fff;
+  font-weight: 700;
+  font-size: 14px;
+  padding: 12px 22px;
+  border-radius: 999px;
+  letter-spacing: 0.02em;
+  transition: background 0.2s, transform 0.2s;
+}
+
+.note-feature:hover .note-feature-cta {
+  background: var(--peach);
+  transform: translateX(4px);
+}
+
+.note-feature-right {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: var(--card);
+  border-radius: 18px;
+  padding: 24px;
+  box-shadow: var(--shadow-sm);
+}
+
+.note-feature-emoji {
+  font-size: 64px;
+  line-height: 1;
+  margin-bottom: 10px;
+}
+
+.note-feature-hashtag {
+  font-weight: 700;
+  font-size: 18px;
+  color: var(--peach);
+  letter-spacing: 0.02em;
+}
+
+@media (max-width: 768px) {
+  .note-feature {
+    grid-template-columns: 1fr;
+    padding: 28px 24px;
+  }
+  .note-feature-right {
+    order: -1;
+    flex-direction: row;
+    gap: 16px;
+    padding: 16px 20px;
+  }
+  .note-feature-emoji {
+    font-size: 40px;
+    margin-bottom: 0;
+  }
+}
+
+/* ====================== OTHER INSTRUCTORS (compact) ====================== */
+.other-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+}
+
+@media (max-width: 700px) { .other-grid { grid-template-columns: 1fr; } }
+
+.other-card {
+  background: var(--card);
+  border-radius: 16px;
+  padding: 20px 22px;
+  box-shadow: var(--shadow-sm);
+  border-top: 3px solid var(--peach);
+}
+
+.other-card:nth-child(4n+2) { border-top-color: var(--sky); }
+.other-card:nth-child(4n+3) { border-top-color: var(--yellow); }
+.other-card:nth-child(4n+4) { border-top-color: var(--green); }
+
+.other-head {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+  padding-bottom: 10px;
+  border-bottom: 1px dashed var(--border);
+}
+
+.other-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--peach-bg);
+  color: var(--peach);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 18px;
+  flex-shrink: 0;
+}
+
+.other-card:nth-child(4n+2) .other-avatar { background: var(--sky-bg); color: var(--sky); }
+.other-card:nth-child(4n+3) .other-avatar { background: var(--yellow-bg); color: var(--yellow); }
+.other-card:nth-child(4n+4) .other-avatar { background: var(--green-bg); color: var(--green); }
+
+.other-name {
+  font-weight: 700;
+  font-size: 16px;
+  color: var(--ink);
+}
+
+.other-voice {
+  font-size: 13.5px;
+  line-height: 1.95;
+  color: var(--ink-soft);
+}
+
+.other-voice em {
+  font-style: normal;
+  font-weight: 700;
+  color: var(--ink);
+  background: linear-gradient(transparent 70%, var(--yellow-soft) 70%);
+  padding: 0 2px;
+}
+
+/* ====================== NOTE LINK CARD ====================== */
+.note-link {
+  background: linear-gradient(135deg, var(--sky-bg) 0%, var(--green-bg) 100%);
+  border-radius: 20px;
+  padding: 28px 32px;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  margin-top: 24px;
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.note-link:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow);
+}
+
+.note-link-icon {
+  font-size: 40px;
+  flex-shrink: 0;
+  line-height: 1;
+}
+
+.note-link-body h3 {
+  font-weight: 700;
+  font-size: 17px;
+  color: var(--ink);
+  margin-bottom: 4px;
+}
+
+.note-link-body p {
+  font-size: 13.5px;
+  color: var(--ink-soft);
+  line-height: 1.8;
+  margin-bottom: 8px;
+}
+
+.note-link-body .url {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--sky);
+}
+
+.note-link-body .url::after {
+  content: " →";
+}
+
+@media (max-width: 600px) {
+  .note-link { flex-direction: column; align-items: flex-start; padding: 22px 24px; gap: 14px; }
+}
+
+/* ====================== MENTION LIST ====================== */
+.mention-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.mention-row {
+  background: var(--card);
+  border-radius: 16px;
+  padding: 18px 24px;
+  box-shadow: var(--shadow-sm);
+  display: grid;
+  grid-template-columns: 48px 1fr auto;
+  gap: 18px;
+  align-items: center;
+}
+
+@media (max-width: 600px) {
+  .mention-row {
+    grid-template-columns: 40px 1fr;
+    padding: 16px 18px;
+  }
+  .mention-row .mention-count {
+    grid-column: 1 / 3;
+    text-align: right;
+    border-top: 1px dashed var(--border);
+    padding-top: 10px;
+    margin-top: 4px;
+  }
+}
+
+.mention-row.top {
+  background: linear-gradient(135deg, var(--peach-bg) 0%, var(--yellow-bg) 100%);
+}
+
+.mention-emoji {
+  font-size: 28px;
+  line-height: 1;
+  text-align: center;
+}
+
+.mention-body h4 {
+  font-weight: 700;
+  font-size: 16px;
+  color: var(--ink);
+  margin-bottom: 3px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.mention-body p {
+  font-size: 13px;
+  color: var(--ink-soft);
+  line-height: 1.7;
+}
+
+.top-badge {
+  display: inline-block;
+  background: var(--peach);
+  color: #fff;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: 999px;
+  letter-spacing: 0.04em;
+}
+
+.mention-count {
+  font-weight: 500;
+  font-size: 13px;
+  color: var(--ink-soft);
+  white-space: nowrap;
+  text-align: right;
+}
+
+.mention-count strong {
+  font-weight: 800;
+  font-size: 22px;
+  color: var(--peach);
+  margin-right: 4px;
+}
+
+.mention-row.top .mention-count strong { color: var(--peach); }
+
+/* ====================== INSTRUCTOR ====================== */
+.inst-intro {
+  background: var(--yellow-bg);
+  border-radius: 18px;
+  padding: 22px 28px;
+  margin-bottom: 24px;
+  font-size: 14.5px;
+  line-height: 1.95;
+  color: var(--ink-soft);
+}
+
+.inst-intro strong { color: var(--ink); }
+
+.inst-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.inst {
+  background: var(--card);
+  border-radius: 22px;
+  padding: 28px 32px;
+  box-shadow: var(--shadow-sm);
+  position: relative;
+}
+
+.inst-top {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding-bottom: 20px;
+  margin-bottom: 18px;
+  border-bottom: 1px dashed var(--border);
+}
+
+.inst-avatar {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: var(--peach-bg);
+  color: var(--peach);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--round-card);
+  font-weight: 800;
+  font-size: 26px;
+  flex-shrink: 0;
+}
+
+.inst.sky .inst-avatar { background: var(--sky-bg); color: var(--sky); }
+.inst.yellow .inst-avatar { background: var(--yellow-bg); color: var(--yellow); }
+.inst.green .inst-avatar { background: var(--green-bg); color: var(--green); }
+.inst.pink .inst-avatar { background: var(--pink-bg); color: var(--pink); }
+.inst.purple .inst-avatar { background: var(--purple-bg); color: var(--purple); }
+
+.inst-name {
+  font-family: var(--round-card);
+  font-weight: 800;
+  font-size: 22px;
+  color: var(--ink);
+  line-height: 1.2;
+}
+
+.inst-role {
+  font-size: 12px;
+  color: var(--ink-mute);
+  margin-top: 4px;
+  font-weight: 500;
+}
+
+.inst-mentions {
+  margin-left: auto;
+  background: var(--peach-bg);
+  color: var(--peach);
+  padding: 8px 14px;
+  border-radius: 999px;
+  font-family: var(--round-card);
+  font-weight: 700;
+  font-size: 13px;
+  flex-shrink: 0;
+  text-align: center;
+}
+
+.inst.sky .inst-mentions { background: var(--sky-bg); color: var(--sky); }
+.inst.yellow .inst-mentions { background: var(--yellow-bg); color: var(--yellow); }
+.inst.green .inst-mentions { background: var(--green-bg); color: var(--green); }
+.inst.pink .inst-mentions { background: var(--pink-bg); color: var(--pink); }
+.inst.purple .inst-mentions { background: var(--purple-bg); color: var(--purple); }
+
+.inst-mentions strong {
+  display: block;
+  font-size: 22px;
+  font-weight: 800;
+  line-height: 1.1;
+}
+
+.inst-summary {
+  background: var(--peach-bg);
+  border-radius: 14px;
+  padding: 14px 18px;
+  font-size: 14px;
+  line-height: 1.9;
+  color: var(--ink-soft);
+  margin-bottom: 16px;
+}
+
+.inst.sky .inst-summary { background: var(--sky-bg); }
+.inst.yellow .inst-summary { background: var(--yellow-bg); }
+.inst.green .inst-summary { background: var(--green-bg); }
+.inst.pink .inst-summary { background: var(--pink-bg); }
+.inst.purple .inst-summary { background: var(--purple-bg); }
+
+.inst-summary strong { color: var(--ink); font-weight: 700; }
+
+.inst-voices {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.voice {
+  background: var(--bg);
+  border-radius: 12px;
+  padding: 14px 18px;
+  font-size: 13.5px;
+  line-height: 1.95;
+  color: var(--ink-soft);
+  position: relative;
+  padding-left: 36px;
+}
+
+.voice::before {
+  content: "“";
+  position: absolute;
+  left: 12px;
+  top: 10px;
+  font-family: var(--round-card);
+  font-size: 28px;
+  color: var(--peach);
+  line-height: 1;
+}
+
+.inst.sky .voice::before { color: var(--sky); }
+.inst.yellow .voice::before { color: var(--yellow); }
+.inst.green .voice::before { color: var(--green); }
+.inst.pink .voice::before { color: var(--pink); }
+.inst.purple .voice::before { color: var(--purple); }
+
+.voice em {
+  font-style: normal;
+  font-weight: 700;
+  color: var(--ink);
+  background: linear-gradient(transparent 70%, var(--yellow-soft) 70%);
+  padding: 0 2px;
+}
+
+/* ====================== APPENDIX LETTERS ====================== */
+.appendix-grid {
+  columns: 2;
+  column-gap: 16px;
+}
+
+@media (max-width: 700px) { .appendix-grid { columns: 1; } }
+
+.appendix-card {
+  break-inside: avoid;
+  background: var(--card);
+  border-radius: 16px;
+  padding: 18px 22px;
+  margin-bottom: 16px;
+  font-size: 13.5px;
+  line-height: 1.95;
+  color: var(--ink-soft);
+  box-shadow: var(--shadow-sm);
+  border-left: 4px solid var(--peach);
+}
+
+.appendix-card:nth-child(6n+2) { border-left-color: var(--sky); }
+.appendix-card:nth-child(6n+3) { border-left-color: var(--yellow); }
+.appendix-card:nth-child(6n+4) { border-left-color: var(--green); }
+.appendix-card:nth-child(6n+5) { border-left-color: var(--pink); }
+.appendix-card:nth-child(6n+6) { border-left-color: var(--purple); }
+
+.appendix-card em {
+  font-style: normal;
+  font-weight: 700;
+  color: var(--ink);
+  background: linear-gradient(transparent 70%, var(--yellow-soft) 70%);
+  padding: 0 2px;
+}
+
+.appendix-card .src {
+  display: block;
+  margin-top: 10px;
+  font-size: 11px;
+  color: var(--ink-mute);
+  font-family: var(--round-card);
+  font-weight: 500;
+}
+
+.appendix-card .src::before { content: "📝 "; }
+
+/* ====================== GROWTH ====================== */
+.growth-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+}
+
+@media (max-width: 900px) { .growth-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 540px) { .growth-grid { grid-template-columns: 1fr; } }
+
+.growth {
+  background: var(--card);
+  border-radius: 16px;
+  padding: 18px 20px 16px;
+  font-size: 13.5px;
+  line-height: 1.9;
+  color: var(--ink-soft);
+  box-shadow: var(--shadow-sm);
+  position: relative;
+}
+
+.growth-emoji {
+  font-size: 22px;
+  margin-bottom: 8px;
+  display: block;
+}
+
+.growth strong { color: var(--ink); font-weight: 700; }
+
+/* ====================== CLOSING ====================== */
+.closing {
+  background: linear-gradient(135deg, var(--peach-bg) 0%, var(--pink-bg) 50%, var(--yellow-bg) 100%);
+  border-radius: 28px;
+  padding: 48px 40px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.closing-emoji {
+  font-size: 40px;
+  margin-bottom: 16px;
+  display: block;
+}
+
+.closing h2 {
+  font-family: var(--round-card);
+  font-weight: 800;
+  font-size: clamp(22px, 3.6vw, 30px);
+  line-height: 1.5;
+  color: var(--ink);
+  margin-bottom: 20px;
+}
+
+.closing h2 .em-peach { color: var(--peach); }
+.closing h2 .em-sky { color: var(--sky); }
+
+.closing p {
+  font-size: 15px;
+  line-height: 2.05;
+  color: var(--ink-soft);
+  max-width: 720px;
+  margin: 0 auto 12px;
+  font-family: var(--round-card);
+  font-weight: 500;
+}
+
+.closing p strong { color: var(--ink); font-weight: 700; }
+
+.closing-sig {
+  margin-top: 28px;
+  font-family: var(--round-card);
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--peach);
+}
+
+/* ====================== FOOTER ====================== */
+.footer {
+  margin-top: 48px;
+  padding: 24px 0;
+  text-align: center;
+  font-family: var(--round-card);
+  font-size: 12px;
+  color: var(--ink-mute);
+  letter-spacing: 0.05em;
+}
+
+</style>
+</head>
+<body>
+
+<div class="page">
+
+<!-- ==================== HERO ==================== -->
+<header class="hero">
+  <span class="hero-tag">Re:Works 講座</span>
+  <h1>受講生アンケートまとめ</h1>
+  <div class="hero-meta">
+    <span class="chip">🗓 対象期間：<strong>2026.01 — 2026.05</strong></span>
+    <span class="chip">📋 回収数：<strong>122 件</strong></span>
+    <span class="chip">✏️ 40日：<strong>61 件</strong></span>
+    <span class="chip">🔁 60日：<strong>61 件</strong></span>
+  </div>
+</header>
+
+<!-- ==================== NAV ==================== -->
+<nav class="nav-chips">
+  <a href="#satisfaction" class="nav-chip">📊 満足度</a>
+  <a href="#good-points" class="nav-chip">💛 よかった点</a>
+  <a href="#career" class="nav-chip">💼 案件・収益</a>
+  <a href="#growth" class="nav-chip">🌱 成長の声</a>
+  <a href="#instructors" class="nav-chip">🎤 講師スポットライト</a>
+  <a href="#note-link-section" class="nav-chip">📖 note体験記</a>
+</nav>
+
+
+<!-- ==================== FEATURED note LINK ==================== -->
+<section id="note-link-section" class="note-feature-section">
+  <a class="note-feature" href="https://note.com/hashtag/%E3%83%AA%E3%83%AF%E3%83%BC%E3%82%AF%E3%82%B9" target="_blank" rel="noopener noreferrer">
+    <div class="note-feature-left">
+      <span class="note-feature-tag">📖 EXTERNAL · 卒業生の体験記</span>
+      <h2 class="note-feature-title">
+        noteで卒業生が、<br>
+        <span class="note-feature-em">受講体験を綴ってくれています</span>
+      </h2>
+      <p class="note-feature-desc">
+        アンケートには書ききれない、受講中・卒業後のリアルな空気感が読めます。
+      </p>
+      <span class="note-feature-cta">
+        note ハッシュタグ「#リワークス」を読みに行く →
+      </span>
+    </div>
+    <div class="note-feature-right">
+      <div class="note-feature-emoji">📝</div>
+      <div class="note-feature-hashtag">#リワークス</div>
+    </div>
+  </a>
+</section>
+
+
+<!-- ==================== SECTION 1: SATISFACTION ==================== -->
+<section id="satisfaction">
+  <span class="section-label">Satisfaction</span>
+  <h2 class="section-title">📊 講座満足度</h2>
+  <p class="section-desc">
+    40日卒業アンケート（n=61）の結果です。
+    今期は<strong>「3：普通」以下の評価がゼロ件</strong>、61名全員が「満足」「やや満足」を回答しました 🎉
+  </p>
+
+  <div class="big-stat">
+    <div class="big-label">講座満足度（5段階評価）</div>
+    <div class="big-num">100<span class="unit">%</span></div>
+    <div class="big-sub">61名全員が <strong>「やや満足」以上</strong> を回答 ／ うち「5：満足」は<strong> 57名（93.4%）</strong></div>
+  </div>
+
+  <div class="stat-row three">
+    <div class="stat peach">
+      <div class="stat-emoji">⭐</div>
+      <div class="stat-label">5：満足</div>
+      <div class="stat-value">57<span class="unit">名</span></div>
+      <div class="stat-sub">全体の 93.4%</div>
+    </div>
+    <div class="stat yellow">
+      <div class="stat-emoji">🌟</div>
+      <div class="stat-label">4：やや満足</div>
+      <div class="stat-value">4<span class="unit">名</span></div>
+      <div class="stat-sub">全体の 6.6%</div>
+    </div>
+    <div class="stat green">
+      <div class="stat-emoji">🙆‍♀️</div>
+      <div class="stat-label">3以下（不満）</div>
+      <div class="stat-value">0<span class="unit">名</span></div>
+      <div class="stat-sub">不満ゼロ達成 ✨</div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ==================== SECTION 2: GOOD POINTS ==================== -->
+<section id="good-points">
+  <span class="section-label sky">Top Reasons</span>
+  <h2 class="section-title">💛 「本講座でよかったところ」TOP6</h2>
+  <p class="section-desc">
+    複数選択可の設問で、6項目中<strong>最多は「講師の丁寧な教え方」で59名（96.7%）</strong>。
+    カリキュラムや仕組みより、講師個人のFB品質が一番に挙げられているのがポイントです 🎯
+  </p>
+
+  <div class="bar-list">
+    <div class="bar-row">
+      <div class="bar-label">🥇 講師の丁寧な教え方</div>
+      <div class="bar-num">59<small>/61名</small></div>
+      <div class="bar-track"><div class="bar-fill" style="--w: 96.7%;"></div></div>
+    </div>
+    <div class="bar-row sky">
+      <div class="bar-label">🥈 40日間のカリキュラム</div>
+      <div class="bar-num">48<small>/61名</small></div>
+      <div class="bar-track"><div class="bar-fill" style="--w: 78.7%;"></div></div>
+    </div>
+    <div class="bar-row yellow">
+      <div class="bar-label">🥈 マインドの変化</div>
+      <div class="bar-num">48<small>/61名</small></div>
+      <div class="bar-track"><div class="bar-fill" style="--w: 78.7%;"></div></div>
+    </div>
+    <div class="bar-row green">
+      <div class="bar-label">4️⃣ スキルの学び</div>
+      <div class="bar-num">47<small>/61名</small></div>
+      <div class="bar-track"><div class="bar-fill" style="--w: 77.0%;"></div></div>
+    </div>
+    <div class="bar-row purple">
+      <div class="bar-label">5️⃣ 講座生同士の横のつながり</div>
+      <div class="bar-num">36<small>/61名</small></div>
+      <div class="bar-track"><div class="bar-fill" style="--w: 59.0%;"></div></div>
+    </div>
+    <div class="bar-row pink">
+      <div class="bar-label">6️⃣ 本業に活かせる学び</div>
+      <div class="bar-num">29<small>/61名</small></div>
+      <div class="bar-track"><div class="bar-fill" style="--w: 47.5%;"></div></div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ==================== SECTION 3: CAREER ==================== -->
+<section id="career">
+  <span class="section-label yellow">Career Outcomes</span>
+  <h2 class="section-title">💼 案件獲得・収益の実績</h2>
+  <p class="section-desc">
+    60日経過アンケート（n=61）の集計。受講生たちが実際にどれだけ動いて、どれだけ受注に繋がったか。
+    すべて自己申告ベースの数字です 📈
+  </p>
+
+  <div class="stat-row">
+    <div class="stat peach">
+      <div class="stat-emoji">📨</div>
+      <div class="stat-label">総応募件数</div>
+      <div class="stat-value">2,206<span class="unit">件</span></div>
+      <div class="stat-sub">1人あたり平均 36件</div>
+    </div>
+    <div class="stat green">
+      <div class="stat-emoji">🤝</div>
+      <div class="stat-label">受注経験あり</div>
+      <div class="stat-value">49<span class="unit">名</span></div>
+      <div class="stat-sub">61名中 80.3%</div>
+    </div>
+    <div class="stat sky">
+      <div class="stat-emoji">🔁</div>
+      <div class="stat-label">継続契約 獲得</div>
+      <div class="stat-value">25<span class="unit">名</span></div>
+      <div class="stat-sub">61名中 41.0%</div>
+    </div>
+    <div class="stat yellow">
+      <div class="stat-emoji">💰</div>
+      <div class="stat-label">収益発生</div>
+      <div class="stat-value">41<span class="unit">名</span></div>
+      <div class="stat-sub">61名中 67.2%</div>
+    </div>
+  </div>
+
+  <h3 class="subhead">💸 60日間の総収益と最高額</h3>
+
+  <div class="stat-row two">
+    <div class="stat peach">
+      <div class="stat-emoji">💵</div>
+      <div class="stat-label">60日間の総収益（61名合計）</div>
+      <div class="stat-value">204,388<span class="unit">円</span></div>
+      <div class="stat-sub">収益発生者の平均は約 4,985円</div>
+    </div>
+    <div class="stat pink">
+      <div class="stat-emoji">🏆</div>
+      <div class="stat-label">期間内 最高収益額</div>
+      <div class="stat-value">119,411<span class="unit">円</span></div>
+      <div class="stat-sub">1名が60日で10万円超を達成 ✨</div>
+    </div>
+  </div>
+
+  <h3 class="subhead">💬 案件獲得に直結した、講師サポートへの声</h3>
+
+  <div class="quote-grid">
+    <div class="quote-card">
+      本当に全てに満足です。特にRe:Worksラジオでのマインドセット、講師からの細かな添削のおかげで、
+      初めての面談時に先方から「<em>ポートフォリオが非常にしっかりされていて驚いた。アドバイスも非常に的確に感じありがたい</em>」と
+      いっていただき、<em>即契約となりました</em>。
+      <div class="quote-src">40日卒業アンケートより</div>
+    </div>
+    <div class="quote-card sky">
+      自分では気づけなかった細かい箇所を添削で教えていただけた事が、今のクライアントワークに活きています。
+      また<em>質問部屋で答えていただいた内容が、クライアント様からの評価に繋がり、案件獲得</em>となりました。
+      <div class="quote-src">60日経過アンケートより</div>
+    </div>
+    <div class="quote-card yellow">
+      ゆあさん：個別面談を対応いただきました。親身になってSNS運用代行者としての<em>ロードマップ・スキル・マインド</em>など、
+      ここには書き切れないくらい全般に渡りアドバイスいただきました。
+      もふこさん：ポートフォリオ・台本作成を対応いただきました。<em>視聴者の視座でどうすれば見られるのかポイントを的確に</em>アドバイスいただきました。
+      <div class="quote-src">60日経過アンケートより</div>
+    </div>
+    <div class="quote-card green">
+      面談（ゆあさん）：<em>リサーチや分析など、成果につながる部分</em>を中心に色々と教えていただきました。
+      どれもすぐに実務に取り入れられる内容で助かりました。たくとさんの台本制作の勉強会の内容も活用させてもらっています。
+      <div class="quote-src">60日経過アンケートより</div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ==================== SECTION 4: GROWTH ==================== -->
+<section id="growth">
+  <span class="section-label green">Personal Growth</span>
+  <h2 class="section-title">🌱 受講生の「成長を感じた点」</h2>
+  <p class="section-desc">
+    60日経過アンケート「<strong>この60日間で、特に成長を感じた点があれば教えてください</strong>」の自由記述から原文で抜粋しました。
+    短い言葉ひとつひとつが、皆さんが日々向き合った成果です ✨
+  </p>
+
+  <div class="growth-grid">
+    <div class="growth">
+      <span class="growth-emoji">✨</span>
+      自分のやりたいことをやりたい！と<strong>言えるようになった</strong>。やりたいことを自分でもできる！と思えるようになった。
+    </div>
+    <div class="growth">
+      <span class="growth-emoji">🌅</span>
+      何もできなかった自分が<strong>色々できるようになった</strong>。勉強方法がわかった。
+    </div>
+    <div class="growth">
+      <span class="growth-emoji">🎬</span>
+      台本作成、動画編集の技術、<strong>常に相手の意図やWinを考えられる</strong>ようになった。
+    </div>
+    <div class="growth">
+      <span class="growth-emoji">⏰</span>
+      時間があったらYouTube見ていた自分が<strong>リサーチや案件の業務を普通にやっていて</strong>、しっかりマインドセットができた。
+    </div>
+    <div class="growth">
+      <span class="growth-emoji">🧠</span>
+      マインド面、他責思考が弱くなった。日々の課題をこなす事で<strong>「恐れず、腐らず、とにかくやってみる！」</strong>という気持ちになれた。
+    </div>
+    <div class="growth">
+      <span class="growth-emoji">📈</span>
+      <strong>基準値を上げれた</strong>。スキルや知識がついた。迷わず行動できるようになった。
+    </div>
+    <div class="growth">
+      <span class="growth-emoji">🎯</span>
+      リサーチ分析や編集スキルをはじめ、<strong>SNS運用代行をプロとしてスタートするにおいて、重視すべきポイント</strong>を理解できた。
+    </div>
+    <div class="growth">
+      <span class="growth-emoji">💪</span>
+      <strong>完了主義マインド</strong>。オンオフを分けて、集中してやること。メンタル維持の模索。
+    </div>
+    <div class="growth">
+      <span class="growth-emoji">😊</span>
+      様々な課題をこなし、<strong>自分に自信がついた</strong>。
+    </div>
+    <div class="growth">
+      <span class="growth-emoji">🌸</span>
+      毎日コツコツ<strong>継続する力</strong>、自信、動画編集スキル。
+    </div>
+    <div class="growth">
+      <span class="growth-emoji">🚀</span>
+      <strong>実行力と継続力</strong>がつきました！
+    </div>
+    <div class="growth">
+      <span class="growth-emoji">🌟</span>
+      <strong>環境を変えるためのマインド。</strong>
+    </div>
+  </div>
+</section>
+
+
+<!-- ==================== SECTION 5: INSTRUCTORS ==================== -->
+<section id="instructors">
+  <span class="section-label pink">Instructor Spotlight</span>
+  <h2 class="section-title">🎤 講師スポットライト</h2>
+  <p class="section-desc">
+    60日アンケート「<strong>講座全体の満足度に最も影響した講師・担当者は？</strong>」設問の指名数と、
+    そのメンバーを選んだ理由として書かれた自由記述からの抜粋です ☺️
+  </p>
+
+  <h3 class="subhead">📊 講師名指名 集計（複数選択可・n=61）</h3>
+  <p style="font-size:13px; color: var(--ink-mute); margin-bottom: 16px; line-height: 1.8;">
+    ※ 各講師の特徴コメントは、受講生から寄せられた感謝コメントから抽出してまとめています。
+  </p>
+
+  <div class="mention-list">
+    <div class="mention-row top">
+      <div class="mention-emoji">🌸</div>
+      <div class="mention-body">
+        <h4>もふこさん <span class="top-badge">最多</span></h4>
+        <p>明るいFB、再提出時の褒め言葉、視聴者目線の的確指摘</p>
+      </div>
+      <div class="mention-count">
+        <strong>49</strong><span>件 / 61名中</span>
+      </div>
+    </div>
+  </div>
+
+
+  <h3 class="subhead" style="margin-top: 40px;">💬 講師ごとの「選んだ理由」原文抜粋</h3>
+
+  <div class="inst-list">
+
+    <!-- なつみ -->
+    <div class="inst sky">
+      <div class="inst-top">
+        <div class="inst-avatar">な</div>
+        <div>
+          <div class="inst-name">なつみさん</div>
+          <div class="inst-role">添削・個別指導 担当</div>
+        </div>
+      </div>
+      <div class="inst-summary">
+        🍃 <strong>コメントの傾向：</strong>
+        個別指導の丁寧さ・妥協のない添削・初心者への優しい声かけが評価されています。
+        「厳しさ」と「あたたかさ」の両方を併せ持つ存在として複数の受講生から言及あり ✨
+      </div>
+      <div class="inst-voices">
+        <div class="voice">
+          個別指導の際、私の分からなかったところを丁寧に教えてくださった。
+          <em>自信がないと発言した際に、傾聴と励ましの言葉</em>をくださった。
+          私の意味のわからない質問にも優しく答えてくださいます。
+        </div>
+        <div class="voice">
+          最初の動画編集で、<em>妥協無しで細かい所まで指摘してくれた。適当だった意識が変わった</em>。
+        </div>
+        <div class="voice">
+          <em>厳しいながらもこれから活かせるスキルがついた</em>。
+        </div>
+        <div class="voice">
+          アカウントの内容変更に柔軟に対応していただきました。
+          <em>声掛けも優しく初心者の私にはありがたかった</em>です。
+        </div>
+        <div class="voice">
+          個別部屋で講師をしてくださった、なつみさんとのミーティングの時間に学びが多かったです。
+          私の不安な気持ちを親身になって聞いてくださり、また分からないところを丁寧に教えてくださいました。
+          <em>個別部屋で会えなくなるのが、寂しいです。</em>
+        </div>
+      </div>
+    </div>
+
+    <!-- もふこ -->
+    <div class="inst">
+      <div class="inst-top">
+        <div class="inst-avatar">も</div>
+        <div>
+          <div class="inst-name">もふこさん</div>
+          <div class="inst-role">添削講師</div>
+        </div>
+      </div>
+      <div class="inst-summary">
+        🌸 <strong>コメントの傾向：</strong>
+        明るく前向きなFB、再提出時の褒め言葉、視聴者目線の的確な指摘、添削スピードへの言及が多数。
+        「合格を取りに行きたい！」という受講生のモチベーションを生み出している存在です 🔥
+      </div>
+      <div class="inst-voices">
+        <div class="voice">
+          動画を作成した際に、丁寧に添削してくださった。
+          修正後に提出した際、<em>お褒めの言葉をいただき、とても嬉しくモチベーションが上がった</em>。
+        </div>
+        <div class="voice">
+          <em>FBの声が高め＆明るくて、元気をもらえた。たくさん褒めてもらえて嬉しかった。</em>
+        </div>
+        <div class="voice">
+          添削では簡単に合格をいただけない、もふこさん。しかし、的確な指摘と必ず良いところも添えて丁寧に教えてくださったことが、
+          <em>次はもふこさんから一発で合格を貰おうというモチベーション</em>に繋がってました！
+          私の負けず嫌いに火をつけてくださいました ☺️
+        </div>
+        <div class="voice">
+          1番重い添削のゾーンをずっと対応していただき、大変励みになりました。
+          サラッと「<em>細かいところまで気付けるところ素晴らしい</em>」とお褒めいただいたのが嬉しく、
+          モチベ上げる時によく思い出していました。
+        </div>
+        <div class="voice">
+          特にもふこさんが印象に残りましたが、みなさん優しく
+          <em>どんな小さなことでもプラスの声かけできるところを見つけてくださって自信に繋がりました</em>。
+        </div>
+      </div>
+    </div>
+
+    <!-- あず -->
+    <div class="inst green">
+      <div class="inst-top">
+        <div class="inst-avatar">あ</div>
+        <div>
+          <div class="inst-name">あずさん</div>
+          <div class="inst-role">添削講師</div>
+        </div>
+      </div>
+      <div class="inst-summary">
+        🌷 <strong>コメントの傾向：</strong>
+        「褒める」と「クライアント目線で具体的に指摘する」の両方が評価されています。
+        課題が忙しい時期の担当として「指示が的確かつ具体的」「直す場所がわかりやすい」との声が複数 📝
+      </div>
+      <div class="inst-voices">
+        <div class="voice">
+          たくさん褒めてくださって嬉しかったです。
+          <em>クライアントからどう見えるのかの視点を分かりやすく</em>教えてくださりました。
+        </div>
+        <div class="voice">
+          <em>一番タスクが多く毎日忙しい時期での担当者さん</em>だったのですが、
+          指示が的確かつ具体的だったので直す場所もわかりやすく凄く助かっていました！
+        </div>
+        <div class="voice">
+          <em>添削で丁寧且つモチベーションを上げる伝え方</em>をしてくれていた。
+        </div>
+        <div class="voice">
+          なつみさん、もふこさん、あずさん、ゆあさんには、
+          <em>添削の際にまず良い点を伝えていただき、その後に改善点を具体的に指摘してくださった</em>ことで、
+          自分の強みや課題を明確に理解することができました。
+        </div>
+        <div class="voice">
+          そんな時、のぞみさん、なつみさん、もふこさん、あずさんに
+          <em>共感していただいたり褒めていただいたり、肯定的な言葉をかけていただいて</em>
+          課題を乗り越え卒業することができました。とても感謝しています。
+        </div>
+      </div>
+    </div>
+
+    <!-- ゆあ -->
+    <div class="inst purple">
+      <div class="inst-top">
+        <div class="inst-avatar">ゆ</div>
+        <div>
+          <div class="inst-name">ゆあさん</div>
+          <div class="inst-role">面談・トライアル添削</div>
+        </div>
+      </div>
+      <div class="inst-summary">
+        🌻 <strong>コメントの傾向：</strong>
+        個別面談での実務に直結するアドバイス、トライアル添削の迅速さ、SNS運用代行の実体験を踏まえた話への評価が高い。
+        子育てしながら活動している同じ立場としての発信が「参考になった」との声も ☺️
+      </div>
+      <div class="inst-voices">
+        <div class="voice">
+          個別面談を対応いただきました。
+          <em>親身になってSNS運用代行者としてのロードマップ・スキル・マインドなど、
+          ここには書き切れないくらい全般に渡りアドバイス</em>いただきました。
+        </div>
+        <div class="voice">
+          リサーチや分析など、<em>成果につながる部分について</em>を中心に、色々と教えていただきました。
+          <em>どれもすぐに実務に取り入れられる内容</em>で助かりました。
+        </div>
+        <div class="voice">
+          <em>トライアル案件の添削を締切ギリギリの中、迅速に対応してくださり</em>、
+          大変助かり、モチベーションにもなりました。
+        </div>
+        <div class="voice">
+          ゆあさんは質問会のアーカイブを見ていましたが、
+          <em>お子さんがいて同じ状況で考え方やマインドの持ち方が参考になり、私も前向きに頑張っていこうと思えました。</em>
+        </div>
+        <div class="voice">
+          質問会からトライアルの添削でお世話になり、具体的なご指摘や、
+          <em>SNS運用をしている方の生の声が聞けたのは私にとっても貴重な経験</em>になりました。
+          もっと深掘りして色々話を聞きたいなと思う素敵な方でした。
+        </div>
+      </div>
+    </div>
+<!-- nozomi -->
+    <div class="inst yellow">
+      <div class="inst-top">
+        <div class="inst-avatar">N</div>
+        <div>
+          <div class="inst-name">nozomiさん</div>
+          <div class="inst-role">添削・質問対応</div>
+        </div>
+      </div>
+      <div class="inst-summary">
+        🌟 <strong>コメントの傾向：</strong>
+        Discordでの質問対応の質と量、クライアント目線のアドバイス、メンタルケアまで含めた寄り添いへの言及が多数。
+        「卒業後も質問に答えてくれた」「他の人への回答を見て学んだ」など、間接的な貢献を評価する声も特徴的です 💌
+      </div>
+      <div class="inst-voices">
+        <div class="voice">
+          毎回話しやすい雰囲気を作ってくれますし、<em>nozomiさんがいたので安心して受講進めることができました。</em>
+          課題が遅れたりでご迷惑もおかけしましたが、とてもいい環境で学ばせていただいたと思います。
+        </div>
+        <div class="voice">
+          nozomiさんは<em>質問に的確に返信下さり、メンタルケアや個人的相談にものっていただきました。</em>
+        </div>
+        <div class="voice">
+          <em>特別講義の動画を見て時間の使い方や、本の読み方</em>などすごく参考にさせてもらっていました。
+          Discord内でも迅速な対応をして頂き、<em>仕事の早さなど色々目標とさせてもらってました。</em>
+        </div>
+        <div class="voice">
+          今回nozomiさんを選ばせていただいた理由ですが、実際に私自身の質問に答えていただく機会はありませんでしたが、
+          他の講座生さんのたくさんの質問に答えていらっしゃるのを拝見してきました。
+          <em>nozomiさんの回答の内容・推測力・提案力が、質問者の方の想像を遥かに超えるボリュームのことが多く、
+          毎回私も感動しておりました</em>。
+        </div>
+        <div class="voice">
+          nozomiさんは、オフ会で一人になっていた私に声をかけてくださり、不安だった気持ちを和らげてくださいました。
+          <em>「これから一緒に頑張っていきましょう」と温かい言葉</em>をいただき、とても心強かったです。
+        </div>
+      </div>
+    </div>
+
+    <!-- らい -->
+    <div class="inst pink">
+      <div class="inst-top">
+        <div class="inst-avatar">ら</div>
+        <div>
+          <div class="inst-name">らいさん</div>
+          <div class="inst-role">雑談会・サポート</div>
+        </div>
+      </div>
+      <div class="inst-summary">
+        🌼 <strong>コメントの傾向：</strong>
+        雑談会・オフ会での場づくりや、明るさ・親しみやすさへの評価が中心。
+        Re:Works 卒業生としての経験談が、現在の受講生の「ロールモデル」として機能しています ✨
+      </div>
+      <div class="inst-voices">
+        <div class="voice">
+          <em>細かいところまでハートフルにサポートいただき、
+          Re:Worksの温かい講座そのものをらいさんを通じて体感する</em>ことが多かった。
+        </div>
+        <div class="voice">
+          らいさんは、12期生の雑談会やオフ会で<em>場の雰囲気を明るくしてくださり、
+          とても話しやすく安心できる環境</em>を作ってくださいました。
+          自分に自信が持てない時も、他の受講生の頑張りに刺激を受け、「自分も頑張ろう」と前向きな気持ちになれました。
+        </div>
+        <div class="voice">
+          らいさんは同じ講座生だったとのことで、
+          <em>私も頑張ってらいさんみたいになりたい！とモチベーションが高くなった</em>ことです。
+        </div>
+        <div class="voice">
+          13期生の担当もして頂いており、雑談会などでは自身の経験などもお話ししてくださり本当に励みになりました！
+          <em>Re:Works卒業生の意見を聞けるのはとても貴重</em>でした。
+        </div>
+        <div class="voice">
+          質問会、雑談回で数回お話聞かせていただきました。
+          <em>親しみやすさで場が和んでいて癒されました。</em>
+        </div>
+      </div>
+    </div>
+
+    
+  </div>
+
+
+  <h3 class="subhead" style="margin-top: 40px;">💞 講師全体へのメッセージ</h3>
+
+  <div class="quote-grid">
+    <div class="quote-card">
+      講師の先生は、まず<em>肯定的に受け止めてくださり、しっかり褒めていただける</em>ので、安心して取り組むことができました。
+      その上で、的確な指摘や言葉の選び方がとても分かりやすく、毎回納得しながら改善することができました。
+      <em>技術面だけでなく、精神的にも支えていただいたと感じています。</em>
+      <div class="quote-src">60日アンケート ／ 講師全体へ</div>
+    </div>
+    <div class="quote-card yellow">
+      合格にしたら講師さんも楽であるにも関わらず、<em>最後の最後まで厳しく見てくださった</em>から。
+      何度も添削している中、<em>一人ひとりに初心者の立場に立った明るい言葉がけ</em>をしてくださったから。
+      <div class="quote-src">60日アンケート ／ 講師全体へ</div>
+    </div>
+    <div class="quote-card green">
+      自分のレベルの低さに辛すぎて何度も弱音を吐いてしまいましたが、
+      <em>皆様が優しく寄り添ってくださり、労いの言葉や褒めていただいたり</em>とても感謝しています。
+      <div class="quote-src">60日アンケート</div>
+    </div>
+    <div class="quote-card pink">
+      まず大前提として、<em>運営の方も講師の方も、みなさま全員 人として最高最強</em>だなと思っております！！
+      <div class="quote-src">60日アンケート</div>
+    </div>
+    <div class="quote-card">
+      添削がとても早くて助かりました！
+      また、添削してくださった<em>講師の皆さんはみなさん褒めちぎってくれたので、大変な時もモチベーションが下がらずに頑張れました！</em>
+      <div class="quote-src">60日アンケート ／ 講師全体へ</div>
+    </div>
+    <div class="quote-card yellow">
+      まず、スキルだけでなくマインド面から整えていただけた点がとても良かったです。
+      課題に対するフィードバックが本当に丁寧で愛があり的確でした。
+      対応してくださった女性講師の方が、<em>お母さんのような温かさで真摯に向き合ってくださり、「ちゃんと見てもらえている」という安心感</em>がありました。
+      <div class="quote-src">40日卒業アンケート</div>
+    </div>
+    <div class="quote-card green">
+      ・課題の添削の際に、厳しくチェックしてくださったおかげで合格をもらえた際には自信に繋がった。<br>
+      ・<em>講師陣の関わり方（否定しない、ポジティブな声掛けなど）がとても暖かく感じられ、安心感があり、居心地が良かった。</em>
+      <div class="quote-src">40日卒業アンケート</div>
+    </div>
+    <div class="quote-card pink">
+      いつも丁寧に添削していただき、改善点だけでなく良かった点も必ず添えて教えてくださったことが、大きな励みとなり、学習のモチベーションにつながっておりました！
+      1人だったら、不安でポートフォリオ作成や案件応募すらできてなかったと思います。
+      <em>講師の皆さまからの励みの言葉でその不安を払拭し自信へと繋げることができました。</em>
+      2ヶ月前の私ではここまでできると想像ができませんでしたが、<em>0→1を達成できたこと自体が大きな成長</em>です。
+      <div class="quote-src">40日卒業アンケート</div>
+    </div>
+    <div class="quote-card">
+      他の講座生さんたちのがんばりが近くで見えるDiscordの環境と、
+      <em>講師の方々の添削やリアクションが本当にあたたかく、苦戦した課題時にも励まされ乗り越えることができました。</em>
+      <div class="quote-src">40日卒業アンケート</div>
+    </div>
+    <div class="quote-card yellow">
+      オフ会に行けて良かったです、モチベーション上がりました☺️！
+      あと、<em>講師の方達が最高で、いつもいいところを見つけてくださりプラスの声かけをして下さいました</em>。
+      <em>自分もそうなりたいなと思いました</em>。
+      <div class="quote-src">40日卒業アンケート</div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ==================== FOOTER ==================== -->
+<div class="footer">
+  Re:Works Internal Feedback Report ／ 2026.01 — 2026.05 ／ For Instructors
+</div>
+
+</div>
+
+</body>
+</html>
